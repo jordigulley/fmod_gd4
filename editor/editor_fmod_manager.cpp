@@ -9,7 +9,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 #include "editor_fmod_manager.h"
-#include "editor/editor_file_system.h"
+#include "editor/file_system/editor_file_system.h"
 #include "editor/gui/editor_title_bar.h"
 #include "modules/fmod_gd4/api/studio/inc/fmod_studio.hpp"
 

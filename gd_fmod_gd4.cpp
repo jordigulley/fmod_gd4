@@ -9,6 +9,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 #include "gd_fmod_gd4.h"
+#include "core/io/resource_loader.h"
 FmodManager *FmodManager::singleton = nullptr;
 
 FmodManager *FmodManager::get_singleton() {
@@ -174,13 +175,13 @@ void FmodManager::_bind_methods() {
 
 void FmodManager::set_global_parameter(String p_name, float p_value) {
 	ERR_FAIL_COND_MSG(!initialized, vformat("FMOD not initalized. Could not set global paramter %s", p_name));
-	fmod_system->setParameterByName(p_name.utf8(), p_value);
+	fmod_system->setParameterByName(p_name.utf8().get_data(), p_value);
 }
 
 float FmodManager::get_global_parameter(String p_name) {
 	ERR_FAIL_COND_V_MSG(!initialized, -1.0, vformat("FMOD not initalized. Could not set global paramter %s", p_name));
 	float r = 0;
-	FMOD_RESULT result = fmod_system->getParameterByName(p_name.utf8(), nullptr, &r);
+	FMOD_RESULT result = fmod_system->getParameterByName(p_name.utf8().get_data(), nullptr, &r);
 	ERR_FAIL_COND_V_MSG(result != FMOD_OK, -1.0, vformat("An error occured while getting Global Parameter. FMOD_RESULT Error Code: %s", static_cast<int>(result)));
 	return r;
 }

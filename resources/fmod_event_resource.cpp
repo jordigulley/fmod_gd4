@@ -134,7 +134,7 @@ void FmodEventResource::_get_property_list(List<PropertyInfo> *p_list) const {
 				memfree(label);
 			}
 			// Remove trailing comma
-			hint_string.resize(hint_string.size() - 1);
+			hint_string = hint_string.substr(0, hint_string.size() - 1);
 		} else if (PARAM.value.is_discrete()) {
 			value_type = Variant::Type::INT;
 			step = 1.0;

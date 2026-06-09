@@ -1,6 +1,6 @@
 #ifndef GODOT_FMOD_EVENT_INSP_H
 #define GODOT_FMOD_EVENT_INSP_H
-#include "editor/editor_inspector.h"
+#include "editor/inspector/editor_inspector.h"
 #include "fmod_event_path_property_editor.h"
 #include "../resources/fmod_event_resource.h"
 

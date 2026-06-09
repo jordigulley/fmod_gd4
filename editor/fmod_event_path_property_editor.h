@@ -8,7 +8,7 @@
 #include "scene/gui/item_list.h"
 #include "scene/gui/line_edit.h"
 #include "scene/gui/option_button.h"
-#include "editor/editor_inspector.h"
+#include "editor/inspector/editor_inspector.h"
 
 class FmodEventPickerDialog : public ConfirmationDialog {
 	GDCLASS(FmodEventPickerDialog, ConfirmationDialog);

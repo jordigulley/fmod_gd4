@@ -1,8 +1,6 @@
-# SCsub
-
 Import('env')
 
-sources=[
+sources = [
     "gd_fmod_event_instance.cpp",
     "gd_fmod_vca.cpp",
     "gd_fmod_gd4.cpp",
@@ -13,12 +11,33 @@ sources=[
 ]
 
 if env["target"] == "editor":
-	sources.append([
-    "editor/editor_fmod_event_inspector.cpp",
-    "editor/editor_fmod_manager.cpp",
-    "editor/fmod_event_path_property_editor.cpp",
-	])
+    sources.append([
+        "editor/editor_fmod_event_inspector.cpp",
+        "editor/editor_fmod_manager.cpp",
+        "editor/fmod_event_path_property_editor.cpp",
+    ])
 
 module_env = env.Clone()
+
+module_env.Append(CPPPATH=[
+    ".",
+    "editor",
+    "resources",
+    "api/core/inc",
+    "api/studio/inc"
+])
+
+module_env.Append(LIBPATH=[
+    "api/core/lib/x64",
+    "api/studio/lib/x64"
+])
+
+if env["platform"] == "windows":
+    module_env.Append(LIBS=["fmod_vc", "fmodstudio_vc"])
+elif env["platform"] == "linuxbsd":
+    module_env.Append(LIBS=["fmod", "fmodstudio"])
+    module_env.Append(LINKFLAGS=["-Wl,-rpath=\\$ORIGIN"])
+elif env["platform"] == "macos":
+    module_env.Append(LIBS=["fmod", "fmodstudio"])
+    module_env.Append(LINKFLAGS=["-Wl,-rpath=\\$ORIGIN"])
 module_env.add_source_files(module_env.modules_sources, sources)
-module_env.Append(CPPPATH=[".", "editor", "resources", "api/core/inc", "api/studio/inc", "api/core/lib/x64", "api/studio/lib/x64"])

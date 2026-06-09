@@ -1,4 +1,5 @@
 #include "fmod_bank_resource.h"
+#include "core/io/file_access.h"
 
 void FmodBankResource::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_autoload"), &FmodBankResource::get_autoload);

@@ -113,14 +113,14 @@ FmodEventInstance::PlaybackState FmodEventInstance::get_playback_state() {
 // Parameters
 void FmodEventInstance::set_parameter(const String p_name, const float p_value) {
 	ERR_FAIL_COND_MSG(!is_instance_valid(), vformat("Event instance invalid. Could not set paramter %s", p_name));
-	FMOD_RESULT result = inner_event_instance->setParameterByName(p_name.utf8(), p_value);
+	FMOD_RESULT result = inner_event_instance->setParameterByName(p_name.utf8().get_data(), p_value);
 	ERR_FAIL_COND_MSG(result != FMOD_RESULT::FMOD_OK, vformat("An error occured while setting parameter %s on %s. FMOD_RESULT Error Code: %s", p_name, event_path, static_cast<int>(result)));
 }
 
 float FmodEventInstance::get_parameter(const String p_name) {
 	ERR_FAIL_COND_V_MSG(!is_instance_valid(), -1.0, vformat("Event instance invalid. Could not get paramter %s", p_name));
 	float r = 0;
-	FMOD_RESULT result = inner_event_instance->getParameterByName(p_name.utf8(), 0, &r);
+	FMOD_RESULT result = inner_event_instance->getParameterByName(p_name.utf8().get_data(), 0, &r);
 	ERR_FAIL_COND_V_MSG(result != FMOD_RESULT::FMOD_OK, -1.0, vformat("An error occured while getting parameter %s on %s. FMOD_RESULT Error Code: %s", p_name, event_path, static_cast<int>(result)));
 	return r;
 }

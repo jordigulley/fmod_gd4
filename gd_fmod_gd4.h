@@ -11,6 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #ifndef GODOT_FMOD_GD4_H
 #define GODOT_FMOD_GD4_H
 
+#include "core/object/object.h"
 #include "gd_fmod_event_instance.h"
 #include "gd_fmod_vca.h"
 #include "resources/fmod_bank_resource.h"

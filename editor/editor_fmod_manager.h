@@ -11,10 +11,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #ifndef GODOT_EDITOR_FMOD_H
 #define GODOT_EDITOR_FMOD_H
 
-#include "editor/editor_file_system.h"
+#include "editor/file_system/editor_file_system.h"
 #include "editor/editor_node.h"
 #include "scene/gui/menu_button.h"
-#include "editor/editor_inspector.h"
+#include "editor/inspector/editor_inspector.h"
 #include "core/object/class_db.h"
 #include "core/object/object.h"
 #include "../api/core/inc/fmod.hpp"
